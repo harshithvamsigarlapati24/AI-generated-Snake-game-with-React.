@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+@theme {
+  --color-neon-cyan: #00f3ff;
+  --color-neon-magenta: #ff007c;
+  --color-dark-bg: #050507;
+  --color-panel-bg: rgba(255, 255, 255, 0.02);
+  --color-border: rgba(255, 255, 255, 0.05);
+  
+  --font-sans: 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+@layer base {
+  body {
+    @apply bg-dark-bg text-white antialiased overflow-hidden;
+  }
+}
+
+@layer components {
+  .neon-glow-cyan {
+    text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+  }
+  
+  .neon-glow-magenta {
+    text-shadow: 0 0 8px rgba(255, 0, 124, 0.4);
+  }
+  
+  .panel-glass {
+    @apply bg-panel-bg border border-border rounded-xl backdrop-blur-sm;
+  }
+
+  @keyframes pulse-neon {
+    0% { filter: drop-shadow(0 0 2px #ff007c); transform: scale(0.95); }
+    100% { filter: drop-shadow(0 0 10px #ff007c); transform: scale(1.05); }
+  }
+  
+  .animate-pulse-neon {
+    animation: pulse-neon 1s infinite alternate;
+  }
+}
